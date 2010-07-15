@@ -20,7 +20,7 @@
 include_recipe "apt"
 
 file "/etc/apt/sources.list.d/soren-nova.list" do
-  contents <<-EOH
+  content <<-EOH
 deb http://ppa.launchpad.net/soren/nova/ubuntu lucid main
 deb http://173.203.107.207/ubuntu ./
   EOH
@@ -41,11 +41,21 @@ execute "apt-get update" do
   action :nothing
 end
 
-%w{nova-compute nova-api nova-objectstore redis-server rabbitmq-server euca2ools unzip parted}.each do |pkg|
-  package pkg
+%w{redis-server rabbitmq-server euca2ools unzip parted nova-compute nova-api nova-objectstore}.each do |pkg|
+  package pkg do
+    options "--force-yes"
+  end
 end
 
 service "nginx" do
   action :restart
+end
+
+execute "nova-manage user admin #{node[:nova][:user]}" do
+  not_if "nova-manage user list | grep #{node[:nova][:user]}"
+end
+
+execute "nova-manage project create #{node[:nova][:project]} #{node[:nova][:user]}" do
+  not_if "nova-manage project list | grep #{node[:nova][:project]}"
 end
 

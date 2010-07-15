@@ -128,20 +128,20 @@ execute "bzr launchpad-login #{node[:cloudfiles][:launchpad_login]}" do
   not_if "bzr launchpad-login"
 end
 
-execute "bzr branch #{node[:cloudfiles][:bzr_branch]} swift" do
+execute "bzr init -repo swift" do
   user node[:cloudfiles][:user]
   cwd node[:cloudfiles][:homedir]
   not_if { File.directory?("#{node[:cloudfiles][:homedir]}/swift") }
 end
 
-ruby_block "symlink swift" do
-  block do
-    Dir["#{node[:cloudfiles][:homedir]}/swift/bin/*"].each do |file|
-      r = Chef::Resource::Link.new("/usr/bin/#{File.basename(file, '.py')}", self.run_context)
-      r.to file
-      r.run_action :create
-    end
-  end
+execute "bzr branch #{node[:cloudfiles][:bzr_branch]} swift" do
+  user node[:cloudfiles][:user]
+  cwd "#{node[:cloudfiles][:homedir]}/swift"
+  not_if { File.directory?("#{node[:cloudfiles][:homedir]}/swift") }
+end
+
+execute "python setup.py develop" do
+  cwd "#{node[:cloudfiles][:homedir]}/swift"
 end
 
 ENV["PYTHONPATH"] = "~/swift"
