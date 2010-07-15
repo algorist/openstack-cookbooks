@@ -1,0 +1,11 @@
+{
+  "run_list": [ "recipe[swift]" ],
+  "cloudfiles": {
+    "user": "USERNAME",
+    "group": "GROUP",
+    "homedir": "/home/USERNAME",
+    "launchpad_login": "LAUNCHPAD_LOGIN",
+    "bzr_email": "BZR_EMAIL"
+  }
+}
+

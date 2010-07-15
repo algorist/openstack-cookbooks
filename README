@@ -1,0 +1,19 @@
+Instructions:
+
+Have a Launchpad Account, have your SSH key uploaded.
+
+Build your Ubuntu 10.04 VM.
+
+Add your SSH key to your user - ~/.ssh/id_dsa or ~/.ssh/id_rsa
+
+As your user, do:
+
+curl http://c0020195.cdn1.cloudfiles.rackspacecloud.com/install-swift.sh > install-swift.sh
+bash ./install-swift.sh
+
+You'll be prompted for your username, your group (which is most likely just
+your username again), your Launchpad login, and the email address you want any
+bzr commits to use.
+
+When the script completes, it will prompt you to run the commands needed to
+execute the funtional test suite.

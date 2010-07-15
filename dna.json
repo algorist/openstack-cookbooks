@@ -1,0 +1,10 @@
+{
+  "run_list": [ "recipe[cloudfiles]" ],
+  "cloudfiles": {
+    "user": "adam",
+    "group": "adam",
+    "homedir": "/home/adam",
+    "launchpad_login": "adamhjk",
+    "bzr_email": "adam@opscode.com"
+  }
+}
