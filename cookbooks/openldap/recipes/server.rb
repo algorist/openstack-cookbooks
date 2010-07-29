@@ -29,7 +29,7 @@ when "debian","ubuntu"
   end
 end
 
-package "db4.2-util" do
+package "db4.7-util" do
   action :upgrade
 end
 
@@ -48,12 +48,12 @@ package "slapd" do
   action :upgrade
 end
 
-cookbook_file "#{node[:openldap][:ssl_dir]}/#{node[:openldap][:server]}.pem" do
-  source "ssl/#{node[:openldap][:server]}.pem"
-  mode 0644
-  owner "root"
-  group "root"
-end
+# cookbook_file "#{node[:openldap][:ssl_dir]}/#{node[:openldap][:server]}.pem" do
+#   source "ssl/#{node[:openldap][:server]}.pem"
+#   mode 0644
+#   owner "root"
+#   group "root"
+# end
 
 service "slapd" do
   action [:enable, :start]
