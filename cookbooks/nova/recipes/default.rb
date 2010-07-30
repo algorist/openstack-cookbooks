@@ -19,29 +19,19 @@
 
 include_recipe "apt"
 
-file "/etc/apt/sources.list.d/soren-nova.list" do
+file "/etc/apt/sources.list.d/nova.list" do
   content <<-EOH
-deb http://ppa.launchpad.net/soren/nova/ubuntu lucid main
-deb http://173.203.107.207/ubuntu ./
+deb http://nova.openstack.org/pkgs ./
   EOH
   mode "0644"
 end
 
-bash "grab gpg keys" do
-  code <<-EOH
-gpg --keyserver hkp://keys.gnupg.net --recv-keys AB0188513FD35B23
-gpg -a --export AB0188513FD35B23 | apt-key add -
-  EOH
-  subscribes :run, resources(:file => "/etc/apt/sources.list.d/soren-nova.list"), :immediately
-  action :nothing
-end
-
 execute "apt-get update" do
-  subscribes :run, resources(:file => "/etc/apt/sources.list.d/soren-nova.list"), :immediately
+  subscribes :run, resources(:file => "/etc/apt/sources.list.d/nova.list"), :immediately
   action :nothing
 end
 
-%w{redis-server rabbitmq-server euca2ools unzip parted nova-compute nova-api nova-objectstore}.each do |pkg|
+%w{euca2ools unzip parted nova-compute nova-api nova-objectstore}.each do |pkg|
   package pkg do
     options "--force-yes"
   end

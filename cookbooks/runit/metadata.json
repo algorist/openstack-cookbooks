@@ -1,5 +1,10 @@
 {
-    "providing": {
+    "maintainer": "Opscode, Inc.",
+    "replacing": {
+    },
+    "description": "Installs runit and provides runit_service definition",
+    "maintainer_email": "cookbooks@opscode.com",
+    "groupings": {
     },
     "attributes": {
       "runit/sv_dir": {
@@ -58,14 +63,6 @@
         "display_name": "Runit sv bin"
       }
     },
-    "replacing": {
-    },
-    "dependencies": {
-    },
-    "groupings": {
-    },
-    "recommendations": {
-    },
     "platforms": {
       "debian": [
 
@@ -74,17 +71,20 @@
 
       ]
     },
-    "license": "Apache 2.0",
-    "version": "0.13.0",
-    "recipes": {
+    "recommendations": {
     },
-    "maintainer": "Opscode, Inc.",
+    "dependencies": {
+    },
+    "version": "0.13.0",
     "suggestions": {
     },
-    "maintainer_email": "cookbooks@opscode.com",
-    "name": "runit",
     "conflicting": {
     },
-    "description": "Installs runit and provides runit_service definition",
-    "long_description": ""
+    "license": "Apache 2.0",
+    "name": "runit",
+    "long_description": "",
+    "recipes": {
+    },
+    "providing": {
+    }
   }

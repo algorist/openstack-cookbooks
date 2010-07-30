@@ -1,0 +1,41 @@
+{
+    "maintainer": "Opscode, Inc.",
+    "replacing": {
+    },
+    "description": "Installs/Configures nova",
+    "maintainer_email": "oss@opscode.com",
+    "groupings": {
+    },
+    "attributes": {
+    },
+    "platforms": {
+    },
+    "recommendations": {
+    },
+    "dependencies": {
+      "runit": [
+
+      ],
+      "python-ldap": [
+
+      ],
+      "openldap": [
+
+      ],
+      "build-essential": [
+
+      ]
+    },
+    "version": "0.1.0",
+    "suggestions": {
+    },
+    "conflicting": {
+    },
+    "license": "Apache 2.0",
+    "name": "nova",
+    "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\n= USAGE:\n\n",
+    "recipes": {
+    },
+    "providing": {
+    }
+  }

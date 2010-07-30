@@ -1,0 +1,29 @@
+{
+    "maintainer": "Adam Jacob",
+    "replacing": {
+    },
+    "description": "Installs/Configures python-ldap",
+    "maintainer_email": "adam@opscode.com",
+    "groupings": {
+    },
+    "attributes": {
+    },
+    "platforms": {
+    },
+    "recommendations": {
+    },
+    "dependencies": {
+    },
+    "version": "0.0.1",
+    "suggestions": {
+    },
+    "conflicting": {
+    },
+    "license": "Apache 2.0",
+    "name": "python-ldap",
+    "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+    "recipes": {
+    },
+    "providing": {
+    }
+  }
