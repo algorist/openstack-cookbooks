@@ -7,3 +7,4 @@ version          "0.1"
 
 depends "openldap"
 depends "python-ldap"
+depends "build-essential"
